@@ -1,0 +1,2 @@
+Has cambiado de directorio.
+con os.chdir('\\ruta\\')

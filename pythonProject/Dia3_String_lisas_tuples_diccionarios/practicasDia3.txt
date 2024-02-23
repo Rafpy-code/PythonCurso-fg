@@ -1,0 +1,242 @@
+Soluciones a las Prácticas del Día 3
+Soluciones a las Prácticas del Día 3
+
+
+Antes de dar por finalizadas las prácticas del día de hoy y pasar al proyecto, te comparto las posibles soluciones para cada una de las prácticas que fueron propuestas el día de hoy, en caso de que hayas tenido alguna dificultad para terminarlas.
+
+¡Ten en cuenta que estas soluciones no son únicas! Si has arribado por otro camino a un código que arroja un resultado correcto en PyCharm o tu editor de código de preferencia, quiero que sepas que has hecho un buen trabajo (no siempre pueden contemplarse todos los casos a la hora de evaluar una tarea).
+
+Práctica Método Index() 1
+
+palabra = "ordenador"
+ 
+print(palabra[4])
+Práctica Método Index() 2
+
+frase = "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+ 
+print(frase.index("práctica"))
+Práctica Método Index() 3
+
+frase = "En teoría, la teoría y la práctica son los mismos. En la práctica, no lo son."
+ 
+print(frase.rindex("práctica"))
+Práctica Sub-Strings 1
+
+frase = "Controlar la complejidad es la esencia de la programación"
+ 
+print(frase[:9])
+Práctica Sub-Strings 2
+
+frase = "Nunca confíes en un ordenador que no puedas lanzar por una ventana"
+ 
+print(frase[8::3])
+Práctica Sub-Strings 3
+
+frase = "Es genial trabajar con ordenadores. No discuten, lo recuerdan todo y no se beben tu cerveza"
+ 
+print(frase[::-1])
+Práctica Métodos de String 1
+
+frase = "Especialmente en las comunicaciones electrónicas, la escritura enteramente en mayúsculas equivale a gritar."
+ 
+print(frase.upper())
+Práctica Métodos de String 2
+
+lista_palabras = ["La","legibilidad","cuenta."]
+ 
+frase = " ".join(lista_palabras)
+ 
+print(frase)
+Práctica Métodos de String 3
+
+frase = "Si la implementación es difícil de explicar, puede que sea una mala idea."
+ 
+print(frase.replace("difícil", "fácil").replace("mala","buena"))
+Práctica Propiedades de Strings 1
+
+palabra = "Repetición"
+ 
+print(palabra * 15)
+Práctica Propiedades de Strings 2
+
+haiku = '''
+Tierra mojada
+mis recuerdos de viaje,
+entre las lluvias
+'''
+ 
+print("agua" not in haiku)
+Práctica Propiedades de Strings 3
+
+palabra = "electroencefalografista"
+ 
+print(len(palabra))
+Práctica Listas 1
+
+mi_lista = ["uno", 2, 3.33, "four", True]
+Práctica Listas 2
+
+medios_transporte = ["avión", "auto", "barco", "bicicleta"]
+medios_transporte.append("motocicleta")
+Práctica Listas 3
+
+frutas = ["manzana", "banana", "mango", "cereza", "sandía"]
+ 
+eliminado = frutas.pop(2)
+Práctica Diccionarios 1
+
+mi_dic = {"nombre":"Karen", "apellido":"Jurgens", "edad":35, "ocupacion":"Periodista"}
+Práctica Diccionarios 2
+
+mi_dict = {"valores_1":{"v1":3,"v2":6},"puntos":{"points1":9,"points2":[10,300,15]}}
+print(mi_dict["puntos"]["points2"][1])
+Práctica Diccionarios 3
+
+mi_dic = {"nombre":"Karen", "apellido":"Jurgens", "edad":35, "ocupacion":"Periodista"}
+ 
+mi_dic["edad"] = 36
+mi_dic["ocupacion"] = "Editora"
+mi_dic["pais"] = "Colombia"
+Práctica Tuples 1
+
+mi_tupla = (1, 2, 3, 2, 3, 1, 3, 2, 3, 3, 3, 1, 3, 2, 2, 1, 3, 2)
+ 
+print(mi_tupla.count(2))
+Práctica Tuples 2
+
+mi_tupla = (1, 2, 3, 2, 3, 1, 3, 2)
+ 
+mi_lista = list(mi_tupla)
+Práctica Tuples 3
+
+mi_tupla = (1, 2, 3, 4)
+ 
+a, b, c, d = mi_tupla
+Práctica Sets 1
+
+mi_set_1 = {1, 2, "tres", "cuatro"}
+mi_set_2 = {"tres", 4, 5}
+mi_set_3 = mi_set_1.union(mi_set_2)
+Práctica Sets 2
+
+sorteo = {"Camila", "Margarita", "Axel", "Jorge", "Miguel", "Mónica"}
+sorteo.pop()
+Práctica Sets 3
+
+sorteo = {"Camila", "Margarita", "Axel", "Jorge", "Miguel", "Mónica"}
+sorteo.add("Damián")
+Práctica Booleanos 1
+
+prueba = 1 == 2
+Práctica Booleanos 2
+
+print((17834/34)>87*56)
+Práctica Booleanos 3
+
+print(25**0.5==5)
+
+
+Recuerda que si tienes alguna duda que aún no quede resuelta, tienes a tu disposición el espacio de Preguntas y Respuestas.
+
+Te veo en el proyecto!
+
+Contenido del curso
+Play
+26. Meta del Día 3
+2 min
+Play
+27. Método Index()
+9 min
+Start
+Ejercicio de codificación 28: Práctica Método Index() 1
+Start
+Ejercicio de codificación 29: Práctica Método Index() 2
+Start
+Ejercicio de codificación 30: Práctica Método Index() 3
+Play
+28. Extraer Sub-Strings
+5 min
+Start
+Ejercicio de codificación 31: Práctica Sub-Strings 1
+Start
+Ejercicio de codificación 32: Práctica Sub-Strings 2
+Start
+Ejercicio de codificación 33: Práctica Sub-Strings 3
+Play
+29. Métodos de String
+11 min
+Start
+Ejercicio de codificación 34: Práctica Métodos de String 1
+Start
+Ejercicio de codificación 35: Práctica Métodos de String 2
+Start
+Ejercicio de codificación 36: Práctica Métodos de String 3
+Play
+30. Propiedades de String
+9 min
+Start
+Ejercicio de codificación 37: Práctica Propiedades de Strings 1
+Start
+Ejercicio de codificación 38: Práctica Propiedades de Strings 2
+Start
+Ejercicio de codificación 39: Práctica Propiedades de Strings 3
+Play
+31. Listas
+14 min
+Start
+Ejercicio de codificación 40: Práctica Listas 1
+Start
+Ejercicio de codificación 41: Práctica Listas 2
+Start
+Ejercicio de codificación 42: Práctica Listas 3
+Play
+32. Diccionarios
+15 min
+Start
+Ejercicio de codificación 43: Práctica Diccionarios 1
+Start
+Ejercicio de codificación 44: Práctica Diccionarios 2
+Start
+Ejercicio de codificación 45: Práctica Diccionarios 3
+Play
+33. Tuples
+10 min
+Start
+Ejercicio de codificación 46: Práctica Tuples 1
+Start
+Ejercicio de codificación 47: Práctica Tuples 2
+Start
+Ejercicio de codificación 48: Práctica Tuples 3
+Play
+34. Sets
+13 min
+Start
+Ejercicio de codificación 49: Práctica Sets 1
+Start
+Ejercicio de codificación 50: Práctica Sets 2
+Start
+Ejercicio de codificación 51: Práctica Sets 3
+Play
+35. Booleanos
+8 min
+Start
+Ejercicio de codificación 52: Práctica Booleanos 1
+Start
+Ejercicio de codificación 53: Práctica Booleanos 2
+Start
+Ejercicio de codificación 54: Práctica Booleanos 3
+Start
+Cuestionario 3: Repasemos el Día 3
+Start
+36. Soluciones a las Prácticas del Día 3
+2 min
+Play
+37. Proyecto del Día 3
+4 min
+Play
+38. Solución al Proyecto del Día 3
+19 min
+Play
+39. ResuMate Día 3
+5 min

@@ -1,0 +1,219 @@
+Ejercicio 1
+Crea una función llamada devolver_distintos() que reciba 3
+integers como parámetros.
+Si la suma de los 3 numeros es mayor a 15, va a devolver el
+número mayor.
+Si la suma de los 3 numeros es menor a 10, va a devolver el
+número menor.
+Si la suma de los 3 números es un valor entre 10 y 15
+(incluidos) va a devolver el número de valorintermedio.
+
+"""
+Crea una función llamada devolver_distintos() que reciba 3 integers
+como parámetros.
+Si la suma de los 3 numeros es mayor a 15, va a devolver el número mayor.
+Si la suma de los 3 numeros es menor a 10, va a devolver el número menor.
+Si la suma de los 3 números es un valor entre 10 y 15 (incluidos) va a
+devolver el número de valor intermedio .
+"""
+
+
+def devolver_distintos(a, b, c):
+    lista = [a, b, c]
+    print(lista)
+    suma = 0
+
+    for n in lista:
+        suma += n
+    print(f"La suma da {suma}")
+
+    if suma > 15:
+        return f"El número mayor es {max(lista)}"
+    elif suma < 10:
+        return f"El número menor es {min(lista)}"
+    else:
+        #lista.remove(max(lista))
+        #lista.remove(min(lista))
+        lista.sort()
+        return f"El número intermedio es {lista[1]}"
+
+
+print(devolver_distintos(1, 4, 3))
+
+
+EJERCICIO 2
+Escribe una función (puedes ponerle cualquier nombre que
+quieras) que reciba cualquier palabra como parámetro, y que
+devuelva todas sus letras únicas (sin repetir) pero en orden
+alfabético.
+Por ejemplo si al invocar esta función pasamos la palabra
+"entretenido"
+, debería devolver ['d','e','i','n','o','r','t']
+
+
+def letras_unicas(palabra):
+    set_letras = set(palabra)
+    unicas = list(set_letras)
+    unicas.sort()
+    return unicas
+
+
+print(letras_unicas('ramomocittooncito'))
+
+
+ejercicio 3
+
+Escribe una función que requiera una cantidad indefinida de
+argumentos. Lo que hará esta función es devolver True si en
+algún momento se ha ingresado al numero cero repetido dos
+veces consecutivas.
+Por ejemplo:
+(5,6,1,0,0,9,3,5) >>> True
+(6,0,5,1,0,3,0,1) >>> False
+
+def doble_cero(*args):
+    contador = 0
+
+    if contador + 1 == len(args):
+        return False
+    for numero in args:
+        if args[contador] == 0 and args[contador + 1] == 0:
+            return True
+        else:
+            contador += 1
+    return False
+
+
+print(doble_cero(9, 8, 5, 0, 8, 5, 1, 0, 0))
+
+
+EJERCICIO 4
+
+"""
+Escribe una función llamada contar_primos() que requiera un solo argumento
+numérico.Esta función va a mostrar en pantalla todos los números primos
+existentes en el rango que va desde cero hasta ese número incluido, y va a
+devolver la cantidad de números primos que encontró.Aclaración,
+por convención el 0 y el 1 no se consideran primos.
+"""
+
+
+def contar_primos(numero):
+    primos = [2]
+    iteracion = 3
+
+    if numero < 2:
+        return 0
+
+    while iteracion <= numero:
+        for n in range(3, iteracion, 2):
+            if iteracion % n == 0:
+                iteracion += 2
+                break
+        else:
+            primos.append(iteracion)
+            iteracion += 2
+    print(primos)
+    return len(primos)
+
+
+print(f"Hay {contar_primos(77)} números primos")
+
+Proyecto del Día 5
+Y así hemos terminado la parte preparatoria de este 5º día de entrenamiento y ahora vamos
+a poner toda la carne en la parrilla porque se viene un desafío más que especial. Hoy vas a
+programar El Ahorcado. El juego es muy sencillo y popular, pero por si acaso te lo explico
+rápidamente.
+El programa va a elegir una palabra secreta y le va a mostrar al jugador solamente una serie
+de guiones que representa la cantidad de letras que tiene la palabra. El jugador en cada turno
+deberá elegir una letra y si la letra se encuentra en la palabra oculta, el sistema le va a
+mostrar en qué lugares se encuentra. Pero si el jugador dice una letra que no se encuentra en
+la palabra oculta, pierde una vida.
+En el juego real del ahorcado, cada vez que perdemos una vida, se va completando el dibujo
+del ahorcado miembro por miembro. Pero en nuestro caso, como aún no tenemos elementos
+gráficos, simplemente le vamos a decir que tiene seis vidas y se las iremos descontando de una
+en una, cada vez que el jugador elija una letra incorrecta.
+Si se agotan las vidas antes de adivinar la palabra, el jugador pierde. Pero si adivina la palabra
+completa antes de perder todas las vidas, el jugador gana.
+Parece sencillo, pero ¿cómo diseñamos todo este código? Bueno, aquí van algunas ayudas:
+ Primero vas a crear un código que importe el método choice, ya que lo vas a necesitar
+para que el sistema pueda elegir una palabra al azar dentro de una lista de palabras que
+también vas a crear al comienzo.
+ Luego de eso, vas a crear tantas funciones como creas necesarias para que el programa
+haga cosas como pedirle al usuario que elija una letra, para corroborar si lo que el usuario
+ha ingresado es una letra válida, para chequear si la letra ingresada se encuentra en la
+palabra o no, para verificar si ha ganado o no, etc.
+ Recuerda escribir primero las funciones y luego el código que las implementa
+ordenadamente.
+Creo que este es un proyecto especial y de verdad quiero que sepas que no espero que lo puedas
+resolver sin ayuda. Las funciones parecen simples, pero cuando empezamos a poner funciones
+todas juntas en un código real, es difícil seguir mentalmente la sucesión del código porque se
+vuelve mucho menos lineal que antes. Lo importante es que lo intentes, que tu cabeza se
+zambulla en el problema y luego veremos cómo llegamos a la solución. 
+
+
+import time
+import random
+
+print("\t***** JUEGO DEL AHORCADO *****")
+
+# Declaro la lista de palabras a adivinar.
+palabras = ['perro', 'gallina', 'gato', 'raton',
+            'pato', 'conejo', 'caballo', 'burro',
+            'canguro', 'delfin', 'tortuga']
+
+jugador = input('Ingresa tu nombre: ')
+jugador = jugador.capitalize()
+print(f'Hola, {jugador}')
+time.sleep(1)
+print('Empecemos!!!')
+
+
+# Creo una función para sacar una palabra aleatoria.
+def escogerPalabra(lista):
+    return random.choice(lista)
+
+
+# print(escogerPalabra())
+letras = "abcdefghijklmnñopqrstuvwxyzáéíóú"
+letras_erroneas = []
+vidas = 6
+
+
+def jugar(palabra, vidas):
+    tu_palabra = ''
+    while vidas > 0:
+        errores = False
+
+        for letra in palabra:
+            if letra in tu_palabra:
+                print(letra, end='')
+            else:
+                print('-', end='')
+                errores = True
+                # print (errores,end='')
+        if not errores:
+            print('\n\tPalabra encontrada!!!')
+            break
+
+        letra = input('\tIntroduce una letra: ')
+        tu_palabra += letra
+        # print(f'Letras introducidas {tu_palabra}')
+
+        if letra not in palabra:
+            letras_erroneas.append(letra)
+            vidas -= 1
+            if vidas == 0:
+                print(f'\tNo lo has logrado. La palabra buscada era {palabra}')
+            else:
+                print(f'\tCuidado, te quedan {vidas} vidas.')
+                print(f'\tHas fallado {letras_erroneas}')
+    print('Gracias por jugar.')
+
+
+palabra = escogerPalabra(palabras)
+print(palabra)
+jugar(palabra, vidas)
+
+
+

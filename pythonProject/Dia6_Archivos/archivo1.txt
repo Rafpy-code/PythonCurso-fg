@@ -1,0 +1,4 @@
+Inicio del archivo1.txt
+from Pathlib import Path
+funciona?
+Fin del archivo1.txt

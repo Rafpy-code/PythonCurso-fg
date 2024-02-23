@@ -1,0 +1,7 @@
+casa
+del
+árbol
+Esta es una línea con append
+de
+los
+árboles
