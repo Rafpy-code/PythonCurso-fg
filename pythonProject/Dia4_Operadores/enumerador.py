@@ -19,5 +19,5 @@ mis_tuples = list(enumerate(lista))
 print(mis_tuples)
 print(f'mis_tuples[1][1] -> {mis_tuples[1][1]}')
 
-for indice, item in enumerate(range(70,81)):
+for indice, item in enumerate(range(70, 81, 2)):
     print(indice, item)

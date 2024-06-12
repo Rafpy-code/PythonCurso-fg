@@ -6,10 +6,12 @@ def minusculas(texto):
     print(texto.lower())
 
 
+# se puede asignar una función a una variable
 mi_funcion = mayusculas
 mi_funcion('python a mayúsculas')
 
 
+# Una función recibe una función y retorna la función
 def una_funcion(funcion):
     return funcion
 
