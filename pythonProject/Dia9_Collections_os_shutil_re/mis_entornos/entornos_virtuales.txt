@@ -1,0 +1,18 @@
+Python -m pip install virtualenv
+# Colocarse en la carpeta donde se desea crear el entorno virtual
+virtualenv p2
+# Para activar el entorno virtual
+.\p2\Scripts\actívate
+# Para desactivar el entorno virtual
+deactivate
+
+
+borrG
+
+Python -m pip install virtualenv
+# Colocarse en la carpeta donde se desea crear el entorno virtual
+virtualenv p2
+# Para activar el entorno virtual
+.\p2\Scripts\actívate
+# Para desactivar el entorno virtual
+deactivate
