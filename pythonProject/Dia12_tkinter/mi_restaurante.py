@@ -1,4 +1,5 @@
 '''
+https://es.wikibooks.org/wiki/Python/Interfaz_gr%C3%A1fica_con_Tkinter/Los_nombres_de_los_colores
 requirements.txt
 tkinter
 datetime
@@ -46,7 +47,7 @@ def total():
         visor_calculadora.insert(0, resultado)
         operador = ""
     operador = ""
-
+'''
 def revisar_check():
     x = 0
     for i in cuadros_food:
@@ -60,29 +61,40 @@ def revisar_check():
             texto_food[x].set("0")
         x += 1
 
-    x = 0
+    y = 0
     for i in cuadros_drink:
-        if variables_drink[x].get() == 1:
-            cuadros_drink[x].config(state=NORMAL)
-            if cuadros_drink[x].get() == "0":
-                cuadros_drink[x].delete(0, END)
-            cuadros_drink[x].focus()
+        if variables_drink[y].get() == 1:
+            cuadros_drink[y].config(state=NORMAL)
+            if cuadros_drink[y].get() == "0":
+                cuadros_drink[y].delete(0, END)
+            cuadros_drink[y].focus()
         else:
-            cuadros_drink[x].config(state=DISABLED)
-            texto_drink[x].set("0")
-        x += 1
+            cuadros_drink[y].config(state=DISABLED)
+            texto_drink[y].set("0")
+        y += 1
 
-    x = 0
+    z = 0
     for i in cuadros_dessert:
-        if variables_dessert[x].get() == 1:
-            cuadros_dessert[x].config(state=NORMAL)
-            if cuadros_dessert[x].get() == "0":
-                cuadros_dessert[x].delete(0, END)
-            cuadros_dessert[x].focus()
+        if variables_dessert[z].get() == 1:
+            cuadros_dessert[z].config(state=NORMAL)
+            if cuadros_dessert[z].get() == "0":
+                cuadros_dessert[z].delete(0, END)
+            cuadros_dessert[z].focus()
         else:
-            cuadros_dessert[x].config(state=DISABLED)
-            texto_dessert[x].set("0")
-        x += 1
+            cuadros_dessert[z].config(state=DISABLED)
+            texto_dessert[z].set("0")
+        z += 1
+'''
+def revisar_check(variables, cuadros, textos):
+    for i in range(len(cuadros)):
+        if variables[i].get() == 1 and cuadros[i].cget('state') == 'disabled':
+            cuadros[i].config(state=NORMAL)
+            cuadros[i].delete(0, END)
+            cuadros[i].focus()
+        if variables[i].get() != 1:
+            cuadros[i].config(state=DISABLED)
+            cuadros[i].delete(0, END)
+            textos[i].set('0')
 
 def total_recibo():
     sub_total_food = 0
@@ -339,7 +351,7 @@ for food in lista_foods:
                        onvalue=1, 
                        offvalue=0, 
                        variable=variables_food[contador],
-                       command=lambda: revisar_check())
+                       command=lambda: revisar_check(variables_food, cuadros_food, texto_food))
     food.grid(row=contador, 
               column=0, 
               sticky=W) # sticky=W para alinear a la izquierda  
@@ -375,7 +387,7 @@ for drink in lista_drinks:
                         onvalue=1, 
                         offvalue=0, 
                         variable=variables_drink[contador],
-                        command=lambda: revisar_check())
+                        command=lambda: revisar_check(variables_drink, cuadros_drink, texto_drink))
     drink.grid(row=contador, 
                column=0, 
                sticky=W) # sticky=W para alinear a la izquierda 
@@ -411,7 +423,7 @@ for dessert in lista_desserts:
                           onvalue=1, 
                           offvalue=0, 
                           variable=variables_dessert[contador],
-                          command=lambda: revisar_check())
+                          command=lambda: revisar_check(variables_dessert, cuadros_dessert, texto_dessert))
     dessert.grid(row=contador, 
                  column=0, 
                  sticky=W) # sticky=W para alinear a la izquierda  
