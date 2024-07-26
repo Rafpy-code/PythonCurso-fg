@@ -22,7 +22,10 @@ export function TaskCard({ task }) {
             {/* <h3>Id: {task.id}</h3> */}
             <h1 className="font-bold uppercase">{task.title}</h1>
             <p className="text-lime-300">{task.description}</p>
-            <p className="text-lime-300">{<FechaFormateada created={task.created} />}</p>
+            <FechaFormateada 
+              created={task.created}
+              className="text-lime-300" 
+            />
             {task.done ? (
                 <p className="text-lime-300">Task ={">"} <span className="text-white">Done</span></p>) : <p className="text-lime-600">Task ={">"} <span className="text-white">Pending</span></p>
             }
