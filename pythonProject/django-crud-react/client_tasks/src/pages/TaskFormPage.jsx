@@ -57,28 +57,38 @@ export function TaskFormPage() {
     }, [])
 
     return (
-        <div>
+        <div className="max-w-xl mx-auto">
             <form onSubmit={onSubmit}>
                 <input 
                     type="text"
                     placeholder="Title"
-                    {...register("title", { required: true})} 
+                    {...register("title", { required: true})}
+                    className="bg-purple-700 text-white p-3 rounded-lg block w-full mb-3"
                 />
                 {errors.title && <span>Title is required</span>}
                 
                 <textarea 
                     placeholder="Description"
                     {...register("description", { required: true})}
+                    className="bg-purple-700 text-white p-3 rounded-lg block w-full mb-3"
                 ></textarea>
                 {errors.description && <span>Description is required</span>}
                 <input type="hidden" name="" {...register("created")}/>
-                Done <input type="checkbox" name="" id="" {...register("done")} />                              
+                <div className="flex justify-between bg-purple-700 text-white rounded-lg p-3 mt-3 mb-3 block w-full">Done   <input 
+                        type="checkbox"
+                        {...register("done")} 
+                    /> 
+                </div>                             
             </form>
             {/* Uso el operador ternario para saber si es update o create */}
             {params.id ? (
-                <div>
-                    <button onClick={onSubmit}>Update</button>
+                <div className="flex justify-between">
                     <button 
+                        onClick={onSubmit}
+                        className="bg-orange-600 text-white px-3 py-2 rounded-lg w-48"
+                    >Update</button>
+                    <button 
+                        className="bg-red-800 text-white px-3 py-2 rounded-lg w-48"
                         onClick={async () => {
                             const accepted = window.confirm("Are you sure?");
                             if (!accepted) return;
@@ -94,7 +104,10 @@ export function TaskFormPage() {
                         }}
                     >Delete</button>
                 </div>
-            ) : <button onClick={onSubmit}>Save</button>}
+            ) : <button 
+                    className="bg-purple-800 text-white p-3 rounded-lg block w-full mt-3"
+                    onClick={onSubmit}
+                >Save</button>}
         </div>
     )
 }
