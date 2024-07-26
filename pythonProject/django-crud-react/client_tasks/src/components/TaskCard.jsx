@@ -1,4 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import { format } from 'date-fns';
+
+const FechaFormateada = () => {
+  const date = new Date();
+  const formattedDate = format(date, 'dd/MM/yyyy');
+
+  return (
+    <div>
+      <p>Formatted Date: {formattedDate}</p>
+    </div>
+  );
+};
 
 export function TaskCard({ task }) {
 
