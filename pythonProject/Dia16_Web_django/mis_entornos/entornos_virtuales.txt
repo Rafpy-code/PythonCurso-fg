@@ -1,7 +1,154 @@
-Python -m pip install virtualenv
-# Colocarse en la carpeta donde se desea crear el entorno virtual
-virtualenv p2
-# Para activar el entorno virtual
-.\p2\Scripts\actívate
-# Para desactivar el entorno virtual
-deactivate
+# Desde el cmd en la carpeta que vas a iniciar el proyecto con django
+#Python -m pip install virtualenv
+pip install virtualenv
+
+# Colocarse en la carpeta donde se desea crear el entorno virtual:
+    virtualenv NOMBRE_ENTORNO
+# Para activar el entorno virtual:
+    .\NOMBRE_ENTORNO\Scripts\actívate
+# Para desactivar colocarse en el entorno virtual:
+    deactivate
+
+# Instalamos django:
+    pip install django
+
+# Creas la carpeta scr:
+    mkdir src
+
+# Entras a la carpeta src:
+    cd src
+
+#  Para iniciar el proyecto:
+    django-admin startproject NOMBRE_PROYECTO
+
+# Ingresamos a la carpeta NOMBRE_PROYECTO:
+    cd NOMBRE_PROYECTO
+# Iniciamos el servidor:
+    python manage.py runserver
+
+# Realizar la migración que se solicita en la consola:
+    control + c para parar el servidor.
+    python manage.py migrate
+
+# Volvemos a arrancar el servidor:
+    python manage.py runserver
+
+# Ingresamos a la dirección del servidor:
+    http://127.0.0.1:8000/admin
+
+# Debemos crear el usuario y contraseña
+    control + c para parar el servidor.
+    python manage.py createsuperuser
+    # Pedirá nombre, email y pasword
+
+# Volvemos a arrancar el servidor:
+    python manage.py runserver
+
+# E ingresamos a la dirección del servidor:
+    http://127.0.0.1:8000/admin
+    usuario
+    contraseña
+
+# Desde la carpeta NOMBRE_PROYECTO
+    control + c para parar el servidor
+    python manage.py startapp base
+
+# Volvemos a arrancar el servidor:
+    python manage.py runserver
+
+# En la carpeta NOMBRE_PROYECTO
+    abrimos settings.py y agregamos la startapp base y que apunte a base/apps.py->BaseConfig
+    INSTALLED_APPS = [
+    'base.apps.BaseConfig',
+]
+
+# Creamos en base el archivo:
+    urls.py # igual que el que existe en proyecto/urls.py
+
+# Ahora importamos la vistas base/views.py
+    # en base/urls.py importamos:
+    from django.urls import path
+    from . import views
+    urlpatterns = [
+            path('', views.lista_pendientes, name='pendientes')
+        ]
+    # en base/views.py
+    from django.http import HttpResponse
+    def lista_pendientes(request):
+    return HttpResponse("Lista de pendientes") #Esto es lo que se mostrará en la página web
+
+    # en proyecto/urls.py
+    from django.urls import path, include
+    urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('', include('base.urls')),
+        ]
+
+# Para crear las tablas de las bases de datos:
+    base/models.py
+
+# Ahora migramos la tabla:
+    control + c para parar el servidor
+    src/proyecto
+    python manage.py makemigrations
+    # se crea una carpeta migrations
+
+# Ahora migramos a nuestro sitio:
+    python manage.py migrate
+
+# Registramos la migracion en base/admin.py:
+
+
+# Volvemos a arrancar el servidor:
+    python manage.py runserver
+    # en la web/admin debe aparecer la tabla
+
+# Crear en base:
+    base/templates
+    base/templates/base
+    base/templates/base/tarea_lista.html
+
+# Registrar en proyecto/settings.py:
+    TEMPLATES = [
+    {
+        'DIRS': [
+            'D:\\PROGRAMACION\\PythonCurso-fg\\pythonProject\\Dia16_Web_django\\mis_entornos\\web_con_django\\src\\proyecto\\base\\templates'
+        ],        ....}]
+
+# En views.py cambiamos:
+<!--{% for tarea in object_list%} #En views.py -> context_object_name = "tareas"-->
+
+# Continuar revisando el código.
+
+# en proyecto/settings.py:
+    # Por la línea 116 +- para que culquier usuario no logueado vaya al login
+    LOGIN_REDIRECT_URL = 'login'
+
+# Para añadir css crear:
+    crear las carpetas y archivos:
+    static/
+│   └── css/
+│       └── global_styles.css
+# En settings.py
+
+import os # O usuar pathlib
+
+# Ubicación de los archivos estáticos
+STATIC_URL = '/static/'
+
+# Directorios adicionales para buscar archivos estáticos (opcional)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Directorio donde se recopilarán los archivos estáticos para producción
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# incluir en la página principal.html:
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
+# Colectar archivos estáticos (para producción):
+    python manage.py collectstatic
+
+#

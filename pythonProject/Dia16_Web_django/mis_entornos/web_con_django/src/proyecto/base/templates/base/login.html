@@ -1,0 +1,18 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+    <div class="barra-superior">
+        <h1>Ingresar</h1>
+    </div>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <input class="botones" type="submit" value="Ingresar">
+            <br><br>
+        </form>
+    </div>
+    <div class="barra-superior">
+        <h3>Aún No tienes cuenta? <a style="margin-left:20px;" href="{% url 'registro' %}">Regístrate!</a></h3>
+    </div>
+{% endblock content %}

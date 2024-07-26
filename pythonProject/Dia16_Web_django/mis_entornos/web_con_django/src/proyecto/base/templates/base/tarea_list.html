@@ -1,0 +1,49 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+    <div class="barra-superior">
+        <div>
+            <h1>Hola {{request.user|title}}</h1>
+            <h3>Tienes <i>{{count}} tarea{{count|pluralize}} incompleta{{count|pluralize}}</i></h3>
+        </div>
+        {% if request.user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+    <div id="envoltorio-agregar-buscar">
+        <form class="buscar" action="" method="get">
+            <div class="container">
+                <input style="width: 100%;" type="text" name="area-buscar" value="{{valor_buscado}}">
+                <br>
+                <input style="width: 100%;" class="botones" type="submit" value="Buscar tarea{{count|pluralize}}">
+            </div>
+        </form>
+        <a id="enlace-agregar" href="{% url 'crear-tarea' %}">&#10009;</a>
+    </div>
+
+    <div class="envoltorio-items-tarea">
+        {% for tarea in tareas%}
+        <div class="envoltorio-tarea">
+            {% if tarea.completada %}
+                <div class="titulo-tarea">
+                    <div class="icono-tarea-completada"></div>
+                    <i><s><a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a></s></i>                    
+                </div>
+                <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">&#10006;</a>
+            {% else %}
+                <div class="titulo-tarea">
+                    <div class="icono-tarea-incompleta"></div>
+                    <a href="{% url 'editar-tarea' tarea.id %}">{{tarea}}</a>
+                </div>
+                <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">&#10006;</a>
+            {% endif %}
+        </div>
+        {%empty%}
+                <h3>No hay tareas en esta lista</h3>
+        {% endfor %}
+    </div>
+{% endblock content %}

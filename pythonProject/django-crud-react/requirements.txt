@@ -1,0 +1,28 @@
+# BACKEND
+node
+python
+virtualenv
+#.\venv\Scripts\activate
+django
+# django-admin startproject django_crud_api .
+# python manage.py startapp tasks
+# python manage.py migrate   
+# python manage.py runserver  
+djangorestframework
+django-cors-headers
+# colocar los cors en settings.py
+# python manage.py makemigrations tasks
+# python manage.py migrate tasks  
+# serializer.py
+# http://127.0.0.1:8000/tasks/api/v1/tasks/2/
+# Módulo para documentar
+setuptools
+coreapi
+
+# FRONTEND
+npm create vite
+cd client_tasks
+npm install
+npm run dev
+npm i react-router-dom react-hot-toast axios react-hook-form
+npm install date-fns

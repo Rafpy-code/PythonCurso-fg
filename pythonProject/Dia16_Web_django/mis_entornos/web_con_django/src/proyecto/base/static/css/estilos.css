@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color: blanchedalmond ;
+    padding-top: 30px;
+}
+
+.container{
+    padding: 10px;
+    border-radius: 7px;
+    max-width: 550px;
+    margin: auto;
+    background-color: burlywood;
+    -web-kit-shadow: 2px 2px 13px -4px;
+    box-shadow: 2px 2px 13px -4px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+a, p {
+    color: chocolate;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+input[type='text'],
+input[type='password'],
+textarea {
+    outline: none;
+    background-color: inherit;
+    border: 1px solid chocolate;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+    color: chocolate;
+    font-weight: 600;
+}
+
+span {
+    background-color: black;
+}
+
+.barra-superior {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(-45deg, rgb(255, 235, 205) 0%, rgb(231, 134, 8) 100%);
+}
+
+.barra-superior input[type='submit'] {
+    background-color: chocolate;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+.envoltorio-tarea {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: blanchedalmond;
+    border-top: 1px solid chocolate;
+}
+
+.titulo-tarea {
+    display: flex;
+}
+
+.titulo-tarea a {
+    margin-left: 10px;
+}
+
+.icono-tarea-completada {
+    height: 20px;
+    width: 20px;
+    background-color: #28a745;
+    border-radius: 50px;
+}
+
+.icono-tarea-incompleta {
+    height: 20px;
+    width: 20px;
+    background-color: #FFC107;
+    border-radius: 50px;
+}
+
+.enlace-eliminar {
+    font-weight: 900;
+    line-height: 0;
+}
+
+#envoltorio-agregar-buscar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.buscar {
+    margin-top: 20px;
+    display: flex;
+}
+
+#enlace-agregar {
+    font-size: 2rem;
+    text-shadow: 1px 1px chocolate;
+}
+
+.botones {
+    background-color: chocolate;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 15px;
+}
+
+.cuerpo-tarjeta {
+    padding: 20px;
+}
+
+.form-tarjeta {
+    margin-top: 10px;
+    margin: auto;
+}
+
+label {
+    color: white;
+    padding-top: 10px !important;
+    display: block;
+}
+
+.errorlist {
+    list-style-type: none;
+}

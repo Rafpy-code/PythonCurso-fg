@@ -1,0 +1,41 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+    <div class="barra-superior">
+        <h1>Registrarse</h1>
+    </div>
+    <br>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+            {% if form.username.errors %}
+                <div style="color: red;">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+            {% if form.password1.errors %}
+                <div style="color: red;">
+                    {{ form.password1.errors }}
+                </div>
+            {% endif %}
+
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
+            {% if form.password2.errors %}
+                <div style="color: red;">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+            
+            <input class="botones" style="margin-top: 10px;" type="submit" value="Registrar">
+        </form>
+    </div>
+    <br>
+    <div class="barra-superior">
+        <h3>Ya tienes cuenta? <a style="margin-left: 20px;" href="{% url 'login' %}">Ingresa!</a></h3>
+    </div>
+{% endblock content %}
