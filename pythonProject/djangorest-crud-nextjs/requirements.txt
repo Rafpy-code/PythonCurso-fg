@@ -1,0 +1,17 @@
+# Crear el entorno virtual
+setuptools
+django
+djangorestframeworw
+django-cors-headers
+# django-admin startproject taskapi . 
+# python manage.py startapp tasks 
+# añadir a settings.py tasks, djangorestframeworks, corsheaders
+# crear el modelo en models.py
+# python manage.py makemigrations
+# python manage.py migrate
+# crear serializers.py
+
+# FRONTEND
+# cmd como administrador
+# npx create-next-app frontend
+
